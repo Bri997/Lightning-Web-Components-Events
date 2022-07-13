@@ -16,7 +16,6 @@ export default class ParentComponent extends LightningElement {
   addInputToList() {
     this.isVisible = true;
     let userInput = this.template.querySelector(".taskInput");
-    console.log("add input fire");
     if (userInput.value) {
       let id = this.list.length + 1;
       this.list = [
