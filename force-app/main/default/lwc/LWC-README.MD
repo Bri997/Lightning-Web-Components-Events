@@ -60,7 +60,22 @@ Interview Questions
    components in your solution?
 6. When do we use the @api with a function or a property?
 
+Important notes:
+
+Decorators
+@api
+To expose a public property, decorate a field with @api. Public properties define the API for a component.
+See Public Properties.
+To expose a public method, decorate it with @api. Public methods are part of a component’s API. To communicate down the containment hierarchy, owner and parent components can call JavaScript methods on child components.
+See Public Methods.
+
+In the parent component html. The looping for each is on the parent component but the data is passed down to the child component see input-item={inputItem}
+
+In the child component js myEvent a custom event that is called on the parent html under the child with on{yourlowercasename}={handleSelect}
+The event must use the key called detail.
+
 Resources:
 https://blogs.perficient.com/2021/10/20/parent-child-communication-in-lwc/
 https://trailhead.salesforce.com/content/learn/projects/communicate-between-lightning-web-components/communicate-from-child-to-parent
 https://www.sfdcblogs.com/post/how-to-fetch-inputs-in-lightning-web-components
+https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.create_javascript_methods
