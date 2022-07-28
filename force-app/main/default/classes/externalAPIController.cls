@@ -22,7 +22,27 @@ public with sharing class externalAPIController {
       amount +
       ' To ' +
       toCurrency;
-    return response;
+
+    try {
+      // Instantiate a new http object
+      Http h = new Http();
+
+      // Instantiate a new HTTP request, specify the method (GET) as well as the endpoint
+      HttpRequest req = new HttpRequest();
+      //String url = String.format(arg0, arg1);
+      req.setEndpoint(
+        'https://api.apilayer.com/fixer/convert?to=eur&from=usd&amount=1'
+      );
+      req.setMethod('GET');
+      req.setHeader('apikey', '');
+
+      // Send the request, and return a response
+      HttpResponse res = h.send(req);
+      system.debug(res.getBody());
+      return res.getBody();
+    } catch (Exception e) {
+      throw new AuraHandledException(e.getMessage());
+    }
   }
 }
 
